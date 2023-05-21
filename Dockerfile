@@ -16,5 +16,6 @@ RUN mvn -f /home/app/pom.xml clean package
 #
 FROM openjdk:8-jdk-bullseye
 COPY --from=build /home/app/target/cbf-0.0.1-SNAPSHOT.jar /usr/local/lib/cbf-0.0.1-SNAPSHOT.jar
+ENV PORT=8080
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","/usr/local/lib/cbf-0.0.1-SNAPSHOT.jar"]
